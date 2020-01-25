@@ -15,6 +15,5 @@ function documents = prepare_text(textData)
     % characters.
     documents = removeShortWords(documents,2);
     documents = removeLongWords(documents,15);
-
 end
 

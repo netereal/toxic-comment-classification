@@ -29,8 +29,8 @@ train_bag = removeInfrequentWords(train_bag, 10);
 X_train_prepared = tfidf(train_bag);
 X_test_prepared = tfidf(train_bag, test_docs);
 
-
-glm = fitglm(X_train_prepared, y_train, 'linear');
+% logistic regression
+glm = fitclinear(X_train_prepared,y_train, 'Learner','logistic','Solver','lbfgs','Regularization','ridge');
 
 % validate score on test partition
 p = predict(glm, X_test_prepared);
@@ -44,14 +44,16 @@ mdlSVM = fitclinear(X_train_prepared,y_train,...
 'Solver','sparsa','Regularization','lasso',...
 'GradientTolerance',1e-8);
 
-score_svm = predict(mdlSVM,X_train_prepared);
-[Xsvm,Ysvm,Tsvm,AUCsvm] = perfcurve(y_train,score_svm,'1');
+score_svm = predict(mdlSVM,X_test_prepared);
+[Xsvm,Ysvm,Tsvm,AUCsvm] = perfcurve(y_test,score_svm,1);
 
 figure
 plot(X,Y)
 hold on
 plot(Xsvm,Ysvm)
+% hold on
+% plot(Xnb,Ynb)
+legend('Logistic Regression','Support Vector Machines','Location','Best')
 xlabel('False positive rate ') 
 ylabel('True positive rate')
-title('ROC for Classification by Logistic Regression, AUC ' + string(AUC)+ ' and SVM '+ string(AUCsvm))
-
+title('ROC for Classification by Logistic Regression, AUC=' + string(AUC)+ ' and SVM, AUC='+ string(AUCsvm))

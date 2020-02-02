@@ -7,7 +7,7 @@ opts = detectImportOptions(filename);
 all_data = readtable(filename, opts);
 
 % select only 10000 rows for efficiency 
-all_data = all_data(1:10000, :);
+all_data = all_data(1:50000, :);
 
 X = all_data.comment_text;
 y = all_data.toxic;
@@ -30,7 +30,12 @@ X_train_prepared = tfidf(train_bag);
 X_test_prepared = tfidf(train_bag, test_docs);
 
 % logistic regression
-glm = fitclinear(X_train_prepared,y_train, 'Learner','logistic','Solver','lbfgs','Regularization','ridge');
+% best lambda after tuning = 6.309573444801930e-07
+Lambda = 6.309573444801930e-07;
+glm = fitclinear(X_train_prepared',y_train,'ObservationsIn','columns',...
+    'Learner','logistic','Solver','sparsa','Regularization','lasso',...
+    'Lambda',Lambda,'GradientTolerance',1e-8);
+
 
 % validate score on test partition
 p = predict(glm, X_test_prepared);

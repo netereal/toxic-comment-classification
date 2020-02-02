@@ -59,8 +59,8 @@ all_data.comment_text = prepare_text(all_data.comment_text);
 % clean = all_data(all_data.identity_hate==0 & all_data.insult==0 & all_data.threat==0 & all_data.obscene==0 & all_data.severe_toxic==0 & all_data.toxic==0, 2);
 
 %% Create class distribution histogram 
-% class_names = ["toxic","severe toxic","obscene","threat","insult","identity hate"]';
-% class_count = [height(toxic),height(severe_toxic),height(obscene),height(threat),height(insult),height(identity_hate)]';
+% class_names = ["toxic","severe toxic","obscene","threat","insult","identity hate","clean"]';
+% class_count = [height(toxic),height(severe_toxic),height(obscene),height(threat),height(insult),height(identity_hate),height(clean)]';
 % 
 % class_distribution = table(class_names,class_count,'VariableNames', {'class_names','class_count'});
 % 

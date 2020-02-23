@@ -1,4 +1,6 @@
-
+%{
+Exploratory Data Analysis
+%}
 % read csv file into memmory
 filename = "data/train.csv";
 opts = detectImportOptions(filename);

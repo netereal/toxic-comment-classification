@@ -2,7 +2,7 @@
 clc;
 clear;
 %% CONSTANTS
-train_filename = "train.csv";
+train_filename = "../data/train.csv";
 %% Read Data
 fprintf('Reading data...\n');
 opts = detectImportOptions(train_filename);

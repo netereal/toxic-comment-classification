@@ -5,11 +5,8 @@ Identify and classify toxic online comments. Used a dataset from kaggle.
 ### Implemented models:
 * Logistic regression
 * SVM
+* LSTM
 
-### ROC Curves for Logistic Regression and SVM Classification
+### Results for Logistic Regression
 
-AUC Logistic regression = 83.278%
-
-AUC SVM = 92.51%
-
-![Screenshot](result.png)
+![Results for Logistic Regression](/traditional_models/imgs/logistic-regression/classification-errors-all-vertical.png)

@@ -27,12 +27,3 @@ Insult | 0.90742 | 0.82973 | 0.78093 | 34.47461 | 95.08248
 ### ROC curves and Confusion matrices for both models 
 ![results-both-models](/traditional_models/imgs/results-both-models.png)
 
-### Results LSTM
-Class | Precision | Recall | AUC | F1 Score
------ | ----- | ----- | ----- | -----
-Toxic | 0.96368 | 0.83799 | 0.53934 | 0.89645
-Severe Toxic | 0.99798 | 0.86144 | 0.50056 | 0.90364
-Obscene | 0.99211 | 0.82967 | 0.5123 | 0.90364
-Threat | 0.98684 | 0.96026 | 0.52467 | 0.97337
-Insult | 0.98 | 0.83088 | 0.51625 | 0.8993
-Identity Hate | 0.98613 | 0.93255 | 0.73 | 0.95859
